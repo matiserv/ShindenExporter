@@ -4,4 +4,4 @@ Eksporter list anime dla shinden.pl\
 # Użycie
 [Pobierz plik .jar](https://github.com/matiserv/ShindenExporter/releases/download/ALPHA-1.0.0/shindenExporter.jar)\
 Skopiuj link swoich list i wklej go do textboxa i kliknij zapisz.\
-Nie gwarantuję poprawności działania oprogramowania!
+Nie gwarantuję poprawności działania programu!
