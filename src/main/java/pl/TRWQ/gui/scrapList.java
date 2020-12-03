@@ -47,7 +47,7 @@ public class scrapList {
 				return name.endsWith(ext);
 			}
 		});
-		fileDialog.setFile("ShindenExport"+ext);
+		fileDialog.setFile("ShindenExport."+ext);
 		fileDialog.setVisible(true);
 		if (fileDialog.getFile() == null)
 			  return "false";
