@@ -36,6 +36,6 @@ public class Output {
     @Override
     public String toString ()
     {
-        return "Watching [type = "+type+", array = "+animeArray+"]";
+        return "Output [type = "+type+", array = "+animeArray+"]";
     }
 }

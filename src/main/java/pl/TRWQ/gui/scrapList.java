@@ -16,8 +16,13 @@ public class scrapList {
 			updateButton(true);
 			return false;
 		}
-
-		String path = getPath();
+		
+		String type = "xml";
+		
+		if(App.getRdbtnNewRadioButton().isSelected())
+			type = "json";
+		
+		String path = getPath(type);
 		if(path == "false") {
 			updateButton(true);
 			return false;
@@ -25,23 +30,24 @@ public class scrapList {
 		
 		Scraper scr = new Scraper();
 		
-		if(scr.scrap(url, path)) {
+		if(scr.scrap(url, path, type)) {
 			JOptionPane.showMessageDialog(null, "Wyeksportowano poprawnie! ("+path+")");
 		} else {
 			JOptionPane.showMessageDialog(null, "Wyst¹pi³ b³¹d: "+scr.getError());
+			System.out.println(scr.getError());
 		}
 		updateButton(true);
 		return true;
 	}
 	
-	private String getPath() {
+	private String getPath(final String ext) {
 		FileDialog fileDialog = new FileDialog(new Frame(), "Zapisz", FileDialog.SAVE);
 		fileDialog.setFilenameFilter(new FilenameFilter() {
 			public boolean accept(File dir, String name) {
-				return name.endsWith(".json");
+				return name.endsWith(ext);
 			}
 		});
-		fileDialog.setFile("ShindenExport.json");
+		fileDialog.setFile("ShindenExport"+ext);
 		fileDialog.setVisible(true);
 		if (fileDialog.getFile() == null)
 			  return "false";

@@ -19,6 +19,7 @@ import javax.swing.JProgressBar;
 import javax.swing.ButtonGroup;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JCheckBox;
 
 public class App {
 
@@ -26,9 +27,10 @@ public class App {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private static JFormattedTextField formattedTextField;
 	private static JProgressBar progressBar;
-	private JRadioButton rdbtnNewRadioButton;
-	private JRadioButton rdbtnNewRadioButton_1;
+	private static JRadioButton rdbtnNewRadioButton;
+	private static JRadioButton rdbtnNewRadioButton_1;
 	private static Button button;
+	private static JCheckBox chckbxNewCheckBox;
 
 	/**
 	 * Launch the application.
@@ -60,9 +62,9 @@ public class App {
 		frmShindenListExporter = new JFrame();
 		frmShindenListExporter.setResizable(false);
 		frmShindenListExporter.setTitle("Eksport list dla shinden");
-		frmShindenListExporter.setBounds(100, 100, 626, 172);
+		frmShindenListExporter.setBounds(100, 100, 626, 188);
 		frmShindenListExporter.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmShindenListExporter.getContentPane().setLayout(new MigLayout("", "[][grow]", "[][][]"));
+		frmShindenListExporter.getContentPane().setLayout(new MigLayout("", "[][grow]", "[][][][]"));
 		
 		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Adres url listy na shindenie");
 		frmShindenListExporter.getContentPane().add(lblNewJgoodiesLabel, "cell 0 0,alignx left,aligny center");
@@ -76,8 +78,11 @@ public class App {
 		rdbtnNewRadioButton.setSelected(true);
 		frmShindenListExporter.getContentPane().add(rdbtnNewRadioButton, "flowy,cell 0 1,alignx left,aligny center");
 		
+		chckbxNewCheckBox = new JCheckBox("Eksportuj nie rozpoznane anime (MAL)");
+		frmShindenListExporter.getContentPane().add(chckbxNewCheckBox, "cell 0 2");
+		
 		progressBar = new JProgressBar();
-		frmShindenListExporter.getContentPane().add(progressBar, "cell 0 2,alignx center,aligny center");
+		frmShindenListExporter.getContentPane().add(progressBar, "cell 0 3,alignx center,aligny center");
 		
 		button = new Button("Zapisz");
 		button.addMouseListener(new MouseAdapter() {
@@ -95,9 +100,9 @@ public class App {
 				runner.start();
 			}
 		});
-		frmShindenListExporter.getContentPane().add(button, "cell 1 2,alignx right,aligny center");
+		frmShindenListExporter.getContentPane().add(button, "cell 1 3,alignx right,aligny center");
 		
-		rdbtnNewRadioButton_1 = new JRadioButton("Eksport jako XML (format MAL) [N\\D]");
+		rdbtnNewRadioButton_1 = new JRadioButton("Eksport jako XML (format MAL)");
 		buttonGroup.add(rdbtnNewRadioButton_1);
 		frmShindenListExporter.getContentPane().add(rdbtnNewRadioButton_1, "cell 0 1,alignx left,aligny center");
 	}
@@ -108,10 +113,10 @@ public class App {
 	public static JProgressBar getProgressBar() {
 		return progressBar;
 	}
-	public JRadioButton getRdbtnNewRadioButton() {
+	public static JRadioButton getRdbtnNewRadioButton() {
 		return rdbtnNewRadioButton;
 	}
-	public JRadioButton getRdbtnNewRadioButton_1() {
+	public static JRadioButton getRdbtnNewRadioButton_1() {
 		return rdbtnNewRadioButton_1;
 	}
 	public static Button getButton() {
@@ -122,4 +127,7 @@ public class App {
 		getButton().setEnabled(bool);
 	}
 	
+	public static JCheckBox getChckbxNewCheckBox() {
+		return chckbxNewCheckBox;
+	}
 }

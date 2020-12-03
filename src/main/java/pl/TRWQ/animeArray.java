@@ -79,6 +79,6 @@ public class animeArray
     @Override
     public String toString ()
     {
-        return "Watching [name = "+name+", rating = "+rating+", status = "+status+", watched = "+watched+", episodes = "+episodes+"]";
+        return "animeArray [name = "+name+", rating = "+rating+", status = "+status+", watched = "+watched+", episodes = "+episodes+"]";
     }
 }
